@@ -17,13 +17,13 @@ const Home = () => {
     },
   );
 
-  // Merging all pages of messages into a single array using flatMap
+  // Merging all pages of posts into a single array using flatMap
   const posts = data?.pages.flatMap((page) => page.posts);
 
-  // Using useRef to create a reference pointing to the last message element in the message list
+  // Using useRef to create a reference pointing to the last post element in the post list
   const lastPostRef = React.useRef<HTMLDivElement>(null);
 
-  // Using the useIntersection hook to monitor when the last message element appears in the viewport
+  // Using the useIntersection hook to monitor when the last post element appears in the viewport
   const { ref, entry } = useIntersection({
     root: lastPostRef.current, // The root element being monitored
     threshold: 1, // Trigger when the element is fully visible
@@ -31,7 +31,7 @@ const Home = () => {
 
   // Using the useEffect hook to implement infinite scroll loading
   React.useEffect(() => {
-    // Load the next page of messages when the last message element is fully visible in the viewport
+    // Load the next page of posts when the last post element is fully visible in the viewport
     if (entry?.isIntersecting) {
       fetchNextPage();
     }
