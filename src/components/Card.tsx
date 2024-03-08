@@ -1,10 +1,9 @@
-//TODO: Card component here
 import * as React from "react";
 
 interface CardProps {
-  img: string | undefined;
-  title: string | undefined;
-  author: string | undefined;
+  img: string;
+  title: string;
+  author: string;
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -12,7 +11,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div className="flex flex-col" ref={ref}>
         <div className="flex flex-col items-center overflow-hidden rounded-lg bg-white pb-5 shadow-lg">
-          <div className="h-[16rem] w-full">
+          <div className="w-full sm:h-[14rem]">
             <img
               src={img}
               width={500}
